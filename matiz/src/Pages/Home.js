@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import fruitspread from "../Assets/fruitspread.png"
+import Conditions from "../Components/Conditions"
 
 const Home = () => {
   return (
