@@ -6,8 +6,8 @@ const NavBar = () => {
     <nav>
       <h2>Nectar</h2>
       <div>
-      <Link>Home</Link>
-      <Link>More Info</Link>
+      <Link to={"/"}>Home</Link>
+      {/* <Link>More Info</Link> */}
       </div>
 
     </nav>

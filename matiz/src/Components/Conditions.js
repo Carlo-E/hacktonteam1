@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import axios from "axios";
 const Conditions = () => {
   const [remedies, setRemedies] = useState([]);
@@ -21,12 +21,14 @@ const Conditions = () => {
   return (
     <div>
       <h1>Select your illness</h1>
-      <select onChange={handleChange}>
-        <option value="">Select Condition</option>
+      <select defaultValue=""  onChange={handleChange}>
+        <option value="" disabled>Select Condition</option>
         <option value={1}>High Cholesterol</option>
         <option value={2}>High Blood Pressure</option>
       </select>
+      <h5>
       {remedies}
+      </h5>
     </div>
   );
 };
