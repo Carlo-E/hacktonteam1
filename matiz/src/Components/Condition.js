@@ -1,11 +1,13 @@
-const Condition = ({ remedies }) => {
-  return (
-    <div>
-      {remedies.map((remedy) => {
-        return <li key={remedy}>{remedy}</li>;
-      })}
-    </div>
-  );
-};
+ homeDesign
+        <div className = "conditionContainer">
+           {remedies.map(remedy => {
+              return <li key={remedy}>{remedy}</li> 
+           })} 
+        </div>
+
+    )
+}
+
 
 export default Condition;
+

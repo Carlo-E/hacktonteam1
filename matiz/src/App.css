@@ -12,12 +12,12 @@
 
 .descript-container {
   text-align: left;
-  padding-top: 60px;
-  padding-left: 20px;
+  padding-top: 15vh;
+  padding-left: 3vh;
   font-size: 15px;
 }
 
-.descript-container h1 {
+.descript-container h2 {
   width: 300px;
   word-wrap: break-word;
 }
@@ -27,21 +27,42 @@
 }
 
 .howContainer {
-  padding-top: 50px;
+  padding-top: 40px;
 }
 
 .howSteps {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  padding-top: 20px;
+  padding-left: 20vw;
+  padding-right: 20vw;
 }
 
 .howSteps p {
   margin-top: 30px;
   width: 180px;
   word-wrap: break-word;
+  font-size: 15px;
 }
 
 .howSteps img {
   height: 60px;
+}
+
+.conditionContainer {
+  list-style-type: none;
+}
+
+.select {
+  margin-top: 10vh;
+}
+
+.arrow {
+  margin-top: 10vh;
+}
+
+.form-select {
+   margin-left: 40vw;
+   background-color: rgba(120, 213, 62, 0.495);
 }
