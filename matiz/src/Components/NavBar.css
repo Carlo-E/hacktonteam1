@@ -1,13 +1,19 @@
 nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: transparent;
     height: 80px;
     align-items: center;
     width: auto;
     font-size: 15px;
+    padding-left: 12vw;
+    padding-right: 20vw;
   }
 
+
+  nav img {
+    height: 12vh;
+  }
   
   nav a {
     color: rgb(114, 160, 99);
@@ -24,11 +30,4 @@ nav {
     text-decoration: none;
   }
   
-  .newLink {
-    font-size: 14px;
-    border: 2px solid;
-    padding: 6px;
-    border-radius: 5px;
-    font-family: 'Barlow', sans-serif;
-  }
   

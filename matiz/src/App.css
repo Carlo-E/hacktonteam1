@@ -14,7 +14,7 @@
   text-align: left;
   padding-top: 15vh;
   padding-left: 3vh;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .descript-container h2 {
@@ -52,6 +52,10 @@
 
 .conditionContainer {
   list-style-type: none;
+  margin-top: 5vh;
+  margin-left: 38vw;
+  text-align: left;
+  font-size: 16px;
 }
 
 .select {
@@ -64,5 +68,10 @@
 
 .form-select {
    margin-left: 40vw;
-   background-color: rgba(120, 213, 62, 0.495);
+   background-color: rgba(140, 215, 94, 0.386);
+}
+
+.card {
+  margin-top: 6vh;
+  margin-left: 32vw;
 }
