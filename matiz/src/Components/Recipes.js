@@ -30,15 +30,27 @@ const Recipes = ({ remedies }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={input}
-          placeholder="Enter ingredient"
-          onChange={handleChange}
-        />
-        <button type="submit">Build</button>
-      </form>
+      <div>
+        <form onSubmit={handleSubmit} className="buildRecipeContainer">
+          <input
+            type="text"
+            className="form-control"
+            // style={{width:"5vw"}}
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-sm"
+            value={input}
+            placeholder="Enter ingredient"
+            onChange={handleChange}
+          />
+          <button
+            className="btn btn-success btn-sm"
+            style={{ width: "8vw"}}
+            type="submit"
+          >
+            Build
+          </button>
+        </form>
+      </div>
       <RecipeList recipes={recipes} />
     </div>
   );

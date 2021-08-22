@@ -10,7 +10,7 @@ import arrow from "../Assets/arrow.png";
 
 const Conditions = () => {
   const [remedies, setRemedies] = useState([]);
-  const [avoids, setAvoids] = useState([])
+  const [avoids, setAvoids] = useState([]);
   const [displayCondition, setDisplayCondition] = useState(false);
 
   const api_key = process.env.REACT_APP_NUTRI_API_KEY;
@@ -28,40 +28,40 @@ const Conditions = () => {
       });
 
       const letterCaps = newArr
-      .map((char, i, arr) => {
+        .map((char, i, arr) => {
           if (i === 0 || arr[i - 1] === " ") {
-              return char.toUpperCase();
-            } else {
-                return char.toLowerCase();
-            }
+            return char.toUpperCase();
+          } else {
+            return char.toLowerCase();
+          }
         })
         .join("")
         .split(";");
-        
-        setRemedies(letterCaps);
-        setDisplayCondition(true);
-    } catch (error) {
-        console.log(error);
-    }
-};
 
-const fetchToAvoid = async (id) => {
-    try {
-        const res = await axios.get(`
-        https://api.nutridigm.com/api/v1/nutridigm/topitemstoavoid?subscriptionId=0ae0fcf4-25b5-9ec4-540e-03bba0afacdc&problemId=${id} `)
-        console.log(res.data)
-        const items = res.data
-        const itemsarr = items[0].split(";")
-         console.log(itemsarr)
-        setAvoids(itemsarr)
+      setRemedies(letterCaps);
+      setDisplayCondition(true);
     } catch (error) {
-        console.log(error)
+      console.log(error);
     }
-}
+  };
+
+  const fetchToAvoid = async (id) => {
+    try {
+      const res = await axios.get(`
+        https://api.nutridigm.com/api/v1/nutridigm/topitemstoavoid?subscriptionId=0ae0fcf4-25b5-9ec4-540e-03bba0afacdc&problemId=${id} `);
+      console.log(res.data);
+      const items = res.data;
+      const itemsarr = items[0].split(";");
+      console.log(itemsarr);
+      setAvoids(itemsarr);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleChange = (e) => {
     fetchCondition(e.target.value);
-    fetchToAvoid(e.target.value)
+    fetchToAvoid(e.target.value);
   };
 
   return (
@@ -92,8 +92,11 @@ const fetchToAvoid = async (id) => {
           </p>
         </div>
       </div>
-
       <div className="select">
+        <p>
+          Select from the health conditions below to discover healthy food
+          alternatives and avoidants
+        </p>
         <select
           className="form-select"
           style={{ width: "40vh" }}
@@ -122,17 +125,25 @@ const fetchToAvoid = async (id) => {
       </div>
       <h5>
         {displayCondition ? (
-          <div>
-            <h1>Top Items to Avoid:</h1>
-             <ul>
-                 <AvoidFood avoids={avoids} />
-            </ul> 
-              <h1>Top Items to Consume:</h1>
-            <ul>
-              <Condition remedies={remedies} />
-            </ul>
-            <h1>Build Recipe</h1>
-            <Recipes remedies={remedies} />
+          <div className="infoSection">
+            <div className="infoList">
+              <div className="info">
+                <h5>Top Items to Avoid:</h5>
+                <ul className="list-group">
+                  <AvoidFood avoids={avoids} />
+                </ul>
+              </div>
+              <div className="info">
+                <h5>Top Items to Consume:</h5>
+                <ul className="list-group">
+                  <Condition remedies={remedies} />
+                </ul>
+              </div>
+            </div>
+            <div className="build">
+              <h5>Build a Recipe</h5>
+              <Recipes remedies={remedies} />
+            </div>
           </div>
         ) : (
           <ul>

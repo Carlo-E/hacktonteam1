@@ -23,18 +23,25 @@ const RecipeDetails = () => {
   }, [id]);
 
   return (
-    <div>
-      <h1>{recipe.title}</h1>
-      <img src={recipe.image} alt={recipe.title}/>
-      <h2>Cooking Time in Minutes:</h2> 
-      <h6>{recipe.readyInMinutes}</h6>
-      <h2>Ingredients List:</h2> 
-      <h6>{recipe.extendedIngredients && recipe.extendedIngredients.map(ingredient =>{
-          return <li key={ingredient.id}>{ingredient.original}</li>
-      })}</h6>
-      <h2>Directions:</h2>
-      <h6>{recipe.instructions}</h6>
+    <section className="recipeInfo">
+    <div className="card" style={{ width: "50vw" }}>
+      <h2>{recipe.title}</h2>
+      <img src={recipe.image} class="card-img-top" alt={recipe.title} />
+      <div class="card-body">
+        <h4 >Cooking Time in Minutes:</h4>
+        <h6>{recipe.readyInMinutes}</h6>
+        <h4>Ingredients List:</h4>
+        <h6>
+          {recipe.extendedIngredients &&
+            recipe.extendedIngredients.map((ingredient) => {
+              return <li key={ingredient.id}>{ingredient.original}</li>;
+            })}
+        </h6>
+        <h4>Directions:</h4>
+        <h6>{recipe.instructions}</h6>
+      </div>
     </div>
+    </section>
   );
 };
 
