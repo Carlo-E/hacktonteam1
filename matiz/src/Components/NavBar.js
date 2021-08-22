@@ -10,7 +10,6 @@ const NavBar = () => {
       </div>
       <div>
         <Link to={"/"}>Home</Link>
-        {/* <Link>More Info</Link> */}
       </div>
     </nav>
   );

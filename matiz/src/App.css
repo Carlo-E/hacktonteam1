@@ -52,14 +52,34 @@
 
 .conditionContainer {
   list-style-type: none;
-  margin-top: 5vh;
-  margin-left: 38vw;
-  text-align: left;
+  margin-top: 3vh;
+  text-align: center;
   font-size: 16px;
 }
 
+.conditionContainer li {
+  padding-left: 4vw;
+  text-align: left;
+}
+
+.infoSection{
+  margin-top: 8vh;
+  padding-left: 24vw;
+  padding-right: 24vw;
+}
+
+.info {
+  padding-top: 2vh;
+}
 .select {
   margin-top: 10vh;
+}
+
+.select p {
+  width: 440px;
+  word-wrap: break-word;
+  margin-left: 35vw;
+  font-size: 16px;
 }
 
 .arrow {
@@ -73,5 +93,46 @@
 
 .card {
   margin-top: 6vh;
-  margin-left: 32vw;
+  margin-left: 25vw;
+}
+
+.build {
+  margin-top: 5vh;
+}
+
+.buildRecipeContainer{
+  display: flex;
+  flex-direction: row;
+}
+
+
+.recipeList ul{
+  padding-top: 10vh;
+  display: grid;
+  grid-template-columns: 350px 350px 350px;
+  justify-content: center;
+  gap: 50px;
+}
+
+.recipeList li{
+  list-style-type: none;
+}
+
+.recipeList li a {
+  text-decoration: none;
+  color: black;
+}
+
+.recipeList li a:hover {
+  color: rgba(54, 130, 7, 0.975);
+}
+
+.recipeList p {
+  padding-top: 4vh;
+}
+
+.recipeInfo img {
+  padding-left: 10vw;
+  height: 45vh;
+  width: 40vw;
 }
