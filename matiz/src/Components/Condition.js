@@ -1,6 +1,4 @@
-const Condition = ({remedies}) => {
-    return (
-
+ homeDesign
         <div className = "conditionContainer">
            {remedies.map(remedy => {
               return <li key={remedy}>{remedy}</li> 
@@ -10,4 +8,6 @@ const Condition = ({remedies}) => {
     )
 }
 
-export default Condition
+
+export default Condition;
+

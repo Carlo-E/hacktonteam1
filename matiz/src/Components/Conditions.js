@@ -7,13 +7,17 @@ import learn from "../Assets/learn.png";
 import discover from "../Assets/discover.png";
 import arrow from "../Assets/arrow.png";
 
+
 const Conditions = () => {
   const [remedies, setRemedies] = useState([]);
+  const [displayCondition, setDisplayCondition] = useState(false);
+
+  const api_key = process.env.REACT_APP_NUTRI_API_KEY;
 
   const fetchCondition = async (id) => {
     try {
       const res = await axios.get(`
-                https://api.nutridigm.com/api/v1/nutridigm/topitemstoconsume?subscriptionId=0ae0fcf4-25b5-9ec4-540e-03bba0afacdc&problemId=${id}
+                https://api.nutridigm.com/api/v1/nutridigm/topitemstoconsume?subscriptionId=${api_key}&problemId=${id}
             `);
 
       const remediesString = res.data;
@@ -34,6 +38,7 @@ const Conditions = () => {
         .split(";");
 
       setRemedies(letterCaps);
+      setDisplayCondition(true);
     } catch (error) {
       console.log(error);
     }
@@ -55,6 +60,7 @@ const Conditions = () => {
             present state of health.
           </p>
         </div>
+
         <img className="arrow" src={arrow} alt="arrow"/>
         <div>
           <img src={discover} />
@@ -83,10 +89,18 @@ const Conditions = () => {
         </select>
       </div>
       <h5>
-        <ul>
-          <Condition remedies={remedies} />
-        </ul>
-        <Recipes remedies={remedies} />
+        {displayCondition ? (
+          <div>
+            <ul>
+              <Condition remedies={remedies} />
+            </ul>
+            <Recipes remedies={remedies} />
+          </div>
+        ) : (
+          <ul>
+            <Condition remedies={remedies} />
+          </ul>
+        )}
       </h5>
     </div>
   );

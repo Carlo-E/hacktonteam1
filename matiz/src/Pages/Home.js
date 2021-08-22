@@ -1,6 +1,5 @@
-
-import fruitspread from "../Assets/fruitspread.png"
-import Conditions from "../Components/Conditions"
+import fruitspread from "../Assets/fruitspread.png";
+import Conditions from "../Components/Conditions";
 
 const Home = () => {
   return (
@@ -15,10 +14,10 @@ const Home = () => {
           </p>
         </div>
         <div className="fruitsSpread">
-          <img alt="natural" src={fruitspread}/>
+          <img alt="natural" src={fruitspread} />
         </div>
       </div>
-      <Conditions/>
+      <Conditions />
     </div>
   );
 };

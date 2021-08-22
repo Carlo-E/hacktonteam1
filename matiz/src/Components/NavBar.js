@@ -6,10 +6,9 @@ const NavBar = () => {
     <nav>
       <h4>Nektar</h4>
       <div>
-      <Link to={"/"}>Home</Link>
-      {/* <Link>More Info</Link> */}
+        <Link to={"/"}>Home</Link>
+        {/* <Link>More Info</Link> */}
       </div>
-
     </nav>
   );
 };
