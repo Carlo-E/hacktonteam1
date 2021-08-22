@@ -7,7 +7,6 @@ import learn from "../Assets/learn.png";
 import discover from "../Assets/discover.png";
 import arrow from "../Assets/arrow.png";
 
-
 const Conditions = () => {
   const [remedies, setRemedies] = useState([]);
   const [displayCondition, setDisplayCondition] = useState(false);
@@ -61,13 +60,13 @@ const Conditions = () => {
           </p>
         </div>
 
-        <img className="arrow" src={arrow} alt="arrow"/>
+        <img className="arrow" src={arrow} alt="arrow" />
         <div>
-          <img src={discover} />
+          <img src={discover} alt="discover" />
           <h5>Discover</h5>
           <p>Discover recipes generated from these exact foods.</p>
         </div>
-        <img className="arrow" src={arrow} alt="arrow"/>
+        <img className="arrow" src={arrow} alt="arrow" />
         <div>
           <img alt="create" src={create} />
           <h5>Create</h5>
@@ -77,15 +76,30 @@ const Conditions = () => {
         </div>
       </div>
       <div className="select">
-        <select className="form-select" style={{width:"40vh"}} aria-label="Default select example" defaultValue="" onChange={handleChange}>
+        <select
+          className="form-select"
+          style={{ width: "40vh" }}
+          aria-label="Default select example"
+          defaultValue=""
+          onChange={handleChange}
+        >
           <option value="" disabled>
             Select Condition
           </option>
           <option value={1}>High Cholesterol</option>
-          <option value="null" disabled> Acid Reflux/GERD </option>
-          <option value="null" disabled> Celiac Disease </option>
+          <option value="null" disabled>
+            {" "}
+            Acid Reflux/GERD{" "}
+          </option>
+          <option value="null" disabled>
+            {" "}
+            Celiac Disease{" "}
+          </option>
           <option value={2}>High Blood Pressure</option>
-          <option value="null" disabled> Irritable bowel syndrome</option>
+          <option value="null" disabled>
+            {" "}
+            Irritable bowel syndrome
+          </option>
         </select>
       </div>
       <h5>
