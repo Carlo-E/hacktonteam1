@@ -18,11 +18,30 @@
 }
 
 .descript-container h1 {
-    width: 300px;
-    word-wrap: break-word;
+  width: 300px;
+  word-wrap: break-word;
 }
 
 .fruitsSpread img {
   height: 280px;
-  
+}
+
+.howContainer {
+  padding-top: 50px;
+}
+
+.howSteps {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.howSteps p {
+  margin-top: 30px;
+  width: 180px;
+  word-wrap: break-word;
+}
+
+.howSteps img {
+  height: 60px;
 }
