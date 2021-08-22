@@ -1,19 +1,21 @@
 import { useState } from "react";
 import axios from "axios";
-import Recipes from "./Recipes"
+import Recipes from "./Recipes";
 import Condition from "./Condition";
-import create from "../Assets/create.png"
-import learn from "../Assets/learn.png"
-import carrot from "../Assets/carrot.png"
-
+import create from "../Assets/create.png";
+import learn from "../Assets/learn.png";
+import carrot from "../Assets/carrot.png";
 
 const Conditions = () => {
   const [remedies, setRemedies] = useState([]);
+  const [displayCondition, setDisplayCondition] = useState(false);
+
+  const api_key = process.env.REACT_APP_NUTRI_API_KEY;
 
   const fetchCondition = async (id) => {
     try {
       const res = await axios.get(`
-                https://api.nutridigm.com/api/v1/nutridigm/topitemstoconsume?subscriptionId=0ae0fcf4-25b5-9ec4-540e-03bba0afacdc&problemId=${id}
+                https://api.nutridigm.com/api/v1/nutridigm/topitemstoconsume?subscriptionId=${api_key}&problemId=${id}
             `);
 
       const remediesString = res.data;
@@ -29,10 +31,12 @@ const Conditions = () => {
           } else {
             return char.toLowerCase();
           }
-      }).join("").split(";")
-
+        })
+        .join("")
+        .split(";");
 
       setRemedies(letterCaps);
+      setDisplayCondition(true);
     } catch (error) {
       console.log(error);
     }
@@ -46,26 +50,26 @@ const Conditions = () => {
     <div className="howContainer">
       <h3>How it works</h3>
       <div className="howSteps">
-      <div>
-        <img  src={carrot} alt="learn"/>
-        <h4>Learn</h4>
-        <p>
-          Learn about the types of foods that best heal and correct your present
-          state of health.
-        </p>
-      </div>
-      <div>
-        <img src={learn} />
-        <h4>Discover</h4>
-        <p>Discover recipes generated from these exact foods.</p>
-      </div>
-      <div>
-        <img alt="create" src={create}/>
-        <h4>Create</h4>
-        <p>
-          Create a nutritious and tasty meal with step-by-step instructions.
-        </p>
-      </div>
+        <div>
+          <img src={carrot} alt="learn" />
+          <h4>Learn</h4>
+          <p>
+            Learn about the types of foods that best heal and correct your
+            present state of health.
+          </p>
+        </div>
+        <div>
+          <img src={learn} alt="test" />
+          <h4>Discover</h4>
+          <p>Discover recipes generated from these exact foods.</p>
+        </div>
+        <div>
+          <img alt="create" src={create} />
+          <h4>Create</h4>
+          <p>
+            Create a nutritious and tasty meal with step-by-step instructions.
+          </p>
+        </div>
       </div>
       <select defaultValue="" onChange={handleChange}>
         <option value="" disabled>
@@ -75,10 +79,18 @@ const Conditions = () => {
         <option value={2}>High Blood Pressure</option>
       </select>
       <h5>
+        {displayCondition ? (
+          <div>
+            <ul>
+              <Condition remedies={remedies} />
+            </ul>
+            <Recipes remedies={remedies} />
+          </div>
+        ) : (
           <ul>
-           <Condition remedies = {remedies}/>
-          </ul> 
-           <Recipes remedies = {remedies}/>
+            <Condition remedies={remedies} />
+          </ul>
+        )}
       </h5>
     </div>
   );
