@@ -4,7 +4,6 @@ import RecipeList from "./RecipeList";
 
 const Recipes = ({ remedies }) => {
   const api_key = process.env.REACT_APP_RECIPE_API_KEY;
-
   const [input, setInput] = useState("");
   const [recipes, setRecipes] = useState([]);
 
@@ -38,6 +37,7 @@ const Recipes = ({ remedies }) => {
           placeholder="Enter ingredient"
           onChange={handleChange}
         />
+        <button type="submit">Build</button>
       </form>
       <RecipeList recipes={recipes} />
     </div>
