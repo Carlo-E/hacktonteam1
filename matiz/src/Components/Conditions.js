@@ -5,7 +5,8 @@ import Condition from "./Condition";
 import AvoidFood from "./AvoidFood";
 import create from "../Assets/create.png";
 import learn from "../Assets/learn.png";
-import carrot from "../Assets/carrot.png";
+import discover from "../Assets/discover.png";
+import arrow from "../Assets/arrow.png";
 
 const Conditions = () => {
   const [remedies, setRemedies] = useState([]);
@@ -65,37 +66,60 @@ const fetchToAvoid = async (id) => {
 
   return (
     <div className="howContainer">
-      <h3>How it works</h3>
+      <h4>How it works</h4>
       <div className="howSteps">
         <div>
-          <img src={carrot} alt="learn" />
-          <h4>Learn</h4>
+          <img src={learn} alt="learn" />
+          <h5>Learn</h5>
           <p>
             Learn about the types of foods that best heal and correct your
             present state of health.
           </p>
         </div>
+
+        <img className="arrow" src={arrow} alt="arrow" />
         <div>
-          <img src={learn} alt="test" />
-          <h4>Discover</h4>
+          <img src={discover} alt="discover" />
+          <h5>Discover</h5>
           <p>Discover recipes generated from these exact foods.</p>
         </div>
+        <img className="arrow" src={arrow} alt="arrow" />
         <div>
           <img alt="create" src={create} />
-          <h4>Create</h4>
+          <h5>Create</h5>
           <p>
             Create a nutritious and tasty meal with step-by-step instructions.
           </p>
         </div>
       </div>
-      <h1>Select Condition</h1>
-      <select defaultValue="" onChange={handleChange}>
-        <option value="" disabled>
-          Select Condition
-        </option>
-        <option value={1}>High Cholesterol</option>
-        <option value={2}>High Blood Pressure</option>
-      </select>
+
+      <div className="select">
+        <select
+          className="form-select"
+          style={{ width: "40vh" }}
+          aria-label="Default select example"
+          defaultValue=""
+          onChange={handleChange}
+        >
+          <option value="" disabled>
+            Select Condition
+          </option>
+          <option value={1}>High Cholesterol</option>
+          <option value="null" disabled>
+            {" "}
+            Acid Reflux/GERD{" "}
+          </option>
+          <option value="null" disabled>
+            {" "}
+            Celiac Disease{" "}
+          </option>
+          <option value={2}>High Blood Pressure</option>
+          <option value="null" disabled>
+            {" "}
+            Irritable bowel syndrome
+          </option>
+        </select>
+      </div>
       <h5>
         {displayCondition ? (
           <div>
