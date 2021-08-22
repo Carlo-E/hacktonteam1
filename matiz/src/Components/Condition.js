@@ -1,7 +1,7 @@
 const Condition = ({remedies}) => {
     return (
 
-        <div>
+        <div className = "conditionContainer">
            {remedies.map(remedy => {
               return <li key={remedy}>{remedy}</li> 
            })} 

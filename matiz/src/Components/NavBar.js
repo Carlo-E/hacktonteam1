@@ -4,7 +4,7 @@ import "./NavBar.css";
 const NavBar = () => {
   return (
     <nav>
-      <h2>Nektar</h2>
+      <h4>Nektar</h4>
       <div>
       <Link to={"/"}>Home</Link>
       {/* <Link>More Info</Link> */}

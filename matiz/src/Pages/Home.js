@@ -7,7 +7,7 @@ const Home = () => {
     <div>
       <div className="descript_img">
         <div className="descript-container">
-          <h1>Your new guide to alternative medicine</h1>
+          <h2>Your new guide to alternative medicine</h2>
           <p>
             Nectar is a natural remedies and healthy recipes platform. 
             <p>Which
