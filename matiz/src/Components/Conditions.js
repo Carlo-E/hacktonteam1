@@ -1,6 +1,7 @@
 import { useState} from "react";
 import axios from "axios";
 import Condition from "./Condition"
+import Recipes from "./Recipes"
 const Conditions = () => {
   const [remedies, setRemedies] = useState([]);
 
@@ -23,7 +24,7 @@ const Conditions = () => {
               return char.toLowerCase()
           }
       }).join("").split(";")
-        
+
       setRemedies(letterCaps);
     } catch (error) {
       console.log(error);
@@ -44,8 +45,9 @@ const Conditions = () => {
       </select>
       <h5>
           <ul>
-            <Condition remedies = {remedies}/>
-          </ul>
+           <Condition remedies = {remedies}/>
+          </ul> 
+           <Recipes remedies = {remedies}/>
       </h5>
     </div>
   );

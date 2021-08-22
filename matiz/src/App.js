@@ -1,8 +1,9 @@
 import './App.css';
-
 import NavBar from "./Components/NavBar"
 import Home from "./Pages/Home"
 import {Switch, Route} from "react-router"
+
+const dotenv = require('dotenv').config()
 
 const App = () => {
   return (
